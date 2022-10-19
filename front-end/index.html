@@ -9,9 +9,7 @@
 
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
 	<link rel="stylesheet" href="style.css">
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.3.2/socket.io.min.js"
-		integrity="sha512-N5JbZMETkl+0SZh5l8OA2VxSfF120owfQyy54iAXTJIKuqAn3A9TrNz1ypB55o8aSU5MxaodEgv74wGUvgUynQ=="
-		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://cdn.socket.io/3.1.3/socket.io.min.js" integrity="sha384-cPwlPLvBTa3sKAgddT6krw0cJat7egBga3DJepJyrLl4Q9/5WLra3rrnMcyTyOnh" crossorigin="anonymous"></script>
 	<script type="text/javascript" src="main.js" defer></script>
 </head>
 
@@ -62,7 +60,7 @@
 			<div class="chat-area">
 				<div class="title"><b>Conversation title</b><i class="fa fa-search"></i></div>
 				<div class="chat-list">
-					<ul>
+					<ul id="chat">
 						<li class="me">
 							<div class="name">
 								<span class="">John Doe</span>
@@ -85,10 +83,10 @@
 				</div>
 				<div class="input-area">
 					<div class="input-wrapper">
-						<input type="text" value="" placeholder="Message here">
+						<input type="text" value="" placeholder="Message here" id="messageId">
 						<i class="fa fa-smile-o"></i>
 					</div>
-					<input type="button" value="Submit" class="send-btn">
+					<input type="button" value="Submit" class="send-btn" id="send">
 				</div>
 			</div>
 			<div class="right-tabs">

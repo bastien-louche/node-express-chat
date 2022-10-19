@@ -1,3 +1,4 @@
+const sMessage = require('../models/message');
 module.exports = function (io) {
 
   io.on('connection', (socket) => {
@@ -13,5 +14,24 @@ module.exports = function (io) {
     socket.on('...', (msg) => {
 
     });
-  })
+
+    socket.on('chat', (message) => {
+      console.log(`Jai recu : ${message.data}` );
+      const mess = message.data;
+      const m = new sMessage({
+        text : message.data,
+        idUser: 1
+      })
+
+      m.save().then(() => {
+        sMessage.count({}, function(err, message){
+            console.log( "message:: ", message );
+            io.emit('plus-one', io.emit('chat', mess))
+        });
+    }).catch((error) => {
+        console.log(error)
+    })
+  });
+})
+  
 }
